@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Klik-tæller</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    button {
+      font-size: 20px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    p {
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Klik-tæller</h1>
+<p>Antal klik: <span id="count">0</span></p>
+<button onclick="countClick()">Klik mig!</button>
+
+<script>
+let count = 0;
+
+function countClick() {
+  count++;
+  document.getElementById('count').textContent = count;
+}
+</script>
+
+</body>
+</html>
