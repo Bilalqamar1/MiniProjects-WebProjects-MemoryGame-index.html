@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>To-do App</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input, button { padding: 5px; margin: 5px; }
+  </style>
+</head>
+<body>
+<h1>To-do App</h1>
+<input type="text" id="task" placeholder="Skriv en opgave">
+<button onclick="addTask()">Tilføj</button>
+<ul id="tasks"></ul>
+
+<script>
+function addTask() {
+  const input = document.getElementById('task');
+  if(input.value === '') return;
+  const li = document.createElement('li');
+  li.textContent = input.value;
+  li.onclick = () => li.remove();
+  document.getElementById('tasks').appendChild(li);
+  input.value = '';
+}
+</script>
+</body>
+</html>
