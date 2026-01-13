@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<title>Smart AI Dashboard</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+  body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #6b73ff, #000dff);
+    color: #fff;
+  }
+
+  header {
+    padding: 20px;
+    text-align: center;
+    background: rgba(0,0,0,0.2);
+    backdrop-filter: blur(5px);
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 2.5em;
+  }
+
+  .dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.5);
+  }
+
+  h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding-bottom: 10px;
+  }
+
+  input, button, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+  }
+
+  button {
+    background: #ff6b6b;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  button:hover {
+    background: #ff3b3b;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    background: rgba(255,255,255,0.1);
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .achievement {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #ffdd59;
+    color: #333;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    display: none;
+    z-index: 1000;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Smart AI Dashboard</h1>
+  <p>Interaktivt dashboard med noter, opgaver og live data</p>
+</header>
+
+<div class="dashboard">
+
+  <!-- Noter Widget -->
+  <div class="card">
+    <h2>Noter</h2>
+    <textarea id="notes" placeholder="Skriv dine noter her..."></textarea>
+    <button onclick="saveNotes()">Gem Noter</button>
+  </div>
+
+  <!-- To-Do Widget -->
+  <div class="card">
+    <h2>To-Do Liste</h2>
+    <input type="text" id="todoInput" placeholder="Tilføj opgave">
+    <button onclick="addTodo()">Tilføj Opgave</button>
+    <ul id="todoList"></ul>
+  </div>
+
+  <!-- Live Data Widget -->
+  <div class="card">
+    <h2>Live Data</h2>
+    <p>Random Tal (simulerer data fra sensor/API):</p>
+    <p id="liveData" style="font-size:2em;">0</p>
+    <button onclick="generateData()">Opdater Data</button>
+  </div>
+
+</div>
+
+<div class="achievement" id="achievement">🎉 Ny Achievement!</div>
+
+<script>
+  // Noter
+  function saveNotes() {
+    const notes = document.getElementById("notes").value;
+    localStorage.setItem("userNotes", notes);
+    showAchievement("Noter gemt!");
+  }
+  document.getElementById("notes").value = localStorage.getItem("userNotes") || "";
+
+  // To-Do
+  let todoCount = 0;
+  function addTodo() {
+    const input = document.getElementById("todoInput");
+    if(input.value === '') return;
+    const li = document.createElement("li");
+    li.textContent = input.value;
+    li.onclick = () => li.remove();
+    document.getElementById("todoList").appendChild(li);
+    input.value = '';
+    todoCount++;
+    if(todoCount % 5 === 0) showAchievement("Du har tilføjet 5 opgaver!");
+  }
+
+  // Live Data
+  function generateData() {
+    const random = Math.floor(Math.random()*100);
+    document.getElementById("liveData").textContent = random;
+  }
+
+  // Achievement popup
+  function showAchievement(message) {
+    const ach = document.getElementById("achievement");
+    ach.textContent = "🎉 " + message;
+    ach.style.display = "block";
+    setTimeout(() => { ach.style.display = "none"; }, 2500);
+  }
+</script>
+
+</body>
+</html>
