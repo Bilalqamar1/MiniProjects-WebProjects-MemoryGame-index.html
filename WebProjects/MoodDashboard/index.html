@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<title>Mood-to-Action Dashboard</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    color: #333;
+    text-align: center;
+    padding: 50px;
+  }
+
+  h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px #fff;
+  }
+
+  .emoji-container {
+    margin: 30px 0;
+  }
+
+  .emoji {
+    font-size: 3em;
+    cursor: pointer;
+    transition: transform 0.3s;
+    margin: 0 15px;
+  }
+
+  .emoji:hover {
+    transform: scale(1.5);
+  }
+
+  .suggestion {
+    font-size: 1.5em;
+    margin-top: 20px;
+    background: rgba(255,255,255,0.7);
+    padding: 15px;
+    border-radius: 12px;
+    display: inline-block;
+    transition: background 0.5s;
+  }
+
+  #points {
+    margin-top: 40px;
+    font-size: 1.2em;
+  }
+
+  button.complete {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 8px;
+    background-color: #6a5acd;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  button.complete:hover {
+    background-color: #483d8b;
+  }
+</style>
+</head>
+<body>
+
+<h1>Mood-to-Action Dashboard</h1>
+<p>Vælg dit humør for at få personlige anbefalinger!</p>
+
+<div class="emoji-container">
+  <span class="emoji" onclick="getSuggestion('😀')">😀</span>
+  <span class="emoji" onclick="getSuggestion('😔')">😔</span>
+  <span class="emoji" onclick="getSuggestion('😡')">😡</span>
+  <span class="emoji" onclick="getSuggestion('😴')">😴</span>
+</div>
+
+<div id="suggestion" class="suggestion">Her kommer din anbefaling...</div>
+<button id="completeBtn" class="complete" onclick="completeTask()" style="display:none;">Markér som fuldført ✅</button>
+
+<div id="points">Point: 0</div>
+
+<script>
+let points = 0;
+
+const suggestions = {
+  "😀": ["Tag en kort gåtur i solen 🌞", "Arbejd på et kreativt projekt 🎨", "Ring til en ven 📞"],
+  "😔": ["Lav en 5-min meditation 🧘‍♂️", "Skriv dine tanker ned 📝", "Hør din yndlingsmusik 🎵"],
+  "😡": ["Lav lidt motion 🏃‍♂️", "Træk vejret dybt 5 gange 😤", "Skriv frustration ned 💭"],
+  "😴": ["Tag en kort powernap 💤", "Drik et glas vand 💧", "Lav let strækøvelser 🤸‍♂️"]
+};
+
+function getSuggestion(emoji) {
+  const options = suggestions[emoji];
+  const randomSuggestion = options[Math.floor(Math.random() * options.length)];
+  document.getElementById('suggestion').textContent = randomSuggestion;
+  document.getElementById('completeBtn').style.display = 'inline-block';
+}
+
+function completeTask() {
+  points += 10;
+  document.getElementById('points').textContent = `Point: ${points}`;
+  document.getElementById('completeBtn').style.display = 'none';
+  document.getElementById('suggestion').textContent = "Her kommer din næste anbefaling...";
+}
+</script>
+
+</body>
+</html>
