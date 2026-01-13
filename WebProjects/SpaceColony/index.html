@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <title>Space Colony Simulator</title>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+  <style>
+    body { font-family: Arial; text-align: center; padding: 20px; background:#0b0b1e; color:white; }
+    h1 { margin-bottom: 10px; color: #ffcc00;}
+    button { padding:10px 20px; margin:5px; cursor:pointer; background:#ff6600; border:none; color:white; border-radius:5px; }
+    .resource { font-size:18px; margin:10px; }
+    #log { margin-top:20px; height:150px; overflow:auto; background:#111; padding:10px; border-radius:5px;}
+  </style>
+</head>
+<body>
+<h1>🚀 Space Colony Simulator</h1>
+
+<div class="resource">Energi: <span id="energy">100</span></div>
+<div class="resource">Mad: <span id="food">100</span></div>
+<div class="resource">Materialer: <span id="materials">100</span></div>
+
+<button onclick="build('solar')">Byg Solpanel</button>
+<button onclick="build('farm')">Byg Farm</button>
+<button onclick="harvest()">Høst Ressourcer</button>
+
+<div id="log"></div>
+
+<script>
+let pyodideReady = false;
+let pyodide = null;
+async function startPyodide() {
+  pyodide = await loadPyodide();
+  pyodideReady = true;
+  await pyodide.runPythonAsync(`
+energy = 100
+food = 100
+materials = 100
+log = []
+
+def build(building):
+    global energy, food, materials, log
+    if building == "solar" and materials >= 20:
+        energy += 30
+        materials -= 20
+        log.append("Solpanel bygget! +30 energi, -20 materialer")
+    elif building == "farm" and materials >= 15:
+        food += 25
+        materials -= 15
+        log.append("Farm bygget! +25 mad, -15 materialer")
+    else:
+        log.append("Ikke nok materialer!")
+        
+def harvest():
+    global energy, food, materials, log
+    materials += 10
+    energy += 5
+    food += 5
+    log.append("Høstet ressourcer: +10 materialer, +5 energi, +5 mad")
+        
+def get_state():
+    return energy, food, materials, "\\n".join(log[-5:])
+  `);
+  updateUI();
+}
+
+async function build(type){
+  if(!pyodideReady) return;
+  await pyodide.runPythonAsync(`build("${type}")`);
+  updateUI();
+}
+
+async function harvest(){
+  if(!pyodideReady) return;
+  await pyodide.runPythonAsync(`harvest()`);
+  updateUI();
+}
+
+async function updateUI(){
+  const [energy, food, materials, logText] = await pyodide.runPythonAsync(`get_state()`);
+  document.getElementById("energy").textContent = energy;
+  document.getElementById("food").textContent = food;
+  document.getElementById("materials").textContent = materials;
+  document.getElementById("log").textContent = logText;
+}
+
+startPyodide();
+</script>
+</body>
+</html>
