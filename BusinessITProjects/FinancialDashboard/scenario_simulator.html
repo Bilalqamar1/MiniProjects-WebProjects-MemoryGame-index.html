@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <title>Business Scenario Simulator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: radial-gradient(circle at top, #1a2a3a, #0d1117);
+      color: #ffffff;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      text-align: center;
+      opacity: 0.8;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.06);
+      border-radius: 18px;
+      padding: 25px;
+      margin-bottom: 25px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      font-size: 1rem;
+      margin-bottom: 15px;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      color: white;
+    }
+
+    .result {
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 14px;
+      font-size: 1.1rem;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .good {
+      background: rgba(76, 175, 80, 0.25);
+      color: #b9f6ca;
+    }
+
+    .warn {
+      background: rgba(255, 193, 7, 0.25);
+      color: #ffe082;
+    }
+
+    .bad {
+      background: rgba(244, 67, 54, 0.25);
+      color: #ffb4b4;
+    }
+
+    footer {
+      text-align: center;
+      opacity: 0.6;
+      font-size: 0.8rem;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Business Scenario Simulator</h1>
+    <p class="subtitle">
+      Simulér strategiske beslutninger og deres økonomiske konsekvenser
+    </p>
+
+    <div class="card">
+      <label>Årlig omsætning (kr.)</label>
+      <input type="number" id="revenue" placeholder="fx 1_500_000">
+
+      <label>Årlige faste omkostninger (kr.)</label>
+      <input type="number" id="fixedCosts" placeholder="fx 900_000">
+
+      <label>Scenarie</label>
+      <select id="scenario">
+        <option value="growth">Omsætning stiger 15 %</option>
+        <option value="decline">Omsætning falder 10 %</option>
+        <option value="automation">Automatisering (−20 % omkostninger)</option>
+        <option value="salary">Lønstigning (+12 % omkostninger)</option>
+      </select>
+
+      <button onclick="simulate()">Kør scenarie</button>
+
+      <div id="output" class="result warn">
+        Vælg tal og scenarie
+      </div>
+    </div>
+
+    <footer>
+      IT-baseret forretningsanalyse – Økonomi & IT
+    </footer>
+  </div>
+
+  <script>
+    function simulate() {
+      let revenue = Number(document.getElementById("revenue").value);
+      let costs = Number(document.getElementById("fixedCosts").value);
+      const scenario = document.getElementById("scenario").value;
+
+      if (!revenue || !costs) {
+        output("Udfyld alle felter.", "warn");
+        return;
+      }
+
+      if (scenario === "growth") {
+        revenue *= 1.15;
+      }
+
+      if (scenario === "decline") {
+        revenue *= 0.90;
+      }
+
+      if (scenario === "automation") {
+        costs *= 0.80;
+      }
+
+      if (scenario === "salary") {
+        costs *= 1.12;
+      }
+
+      const profit = revenue - costs;
+
+      if (profit > 0) {
+        output(
+          `Resultat: Overskud på ${profit.toLocaleString()} kr. Scenariet er bæredygtigt.`,
+          "good"
+        );
+      } else if (profit === 0) {
+        output(
+          "Resultat: Break-even. Ingen økonomisk buffer.",
+          "warn"
+        );
+      } else {
+        output(
+          `Resultat: Underskud på ${Math.abs(profit).toLocaleString()} kr. Høj risiko.`,
+          "bad"
+        );
+      }
+    }
+
+    function output(text, type) {
+      const box = document.getElementById("output");
+      box.textContent = text;
+      box.className = `result ${type}`;
+    }
+  </script>
+
+</body>
+</html>
