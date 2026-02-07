@@ -56,14 +56,14 @@ Formålet er at:
 
 ### 🐍 Python-projekter
 
-- **[Tic Tac Toe](https://github.com/Bilalqamar1/MiniProjects/PythonProjects/TicTacToe/main.py)**  
+- ** https://github.com/Bilalqamar1/MiniProjects/blob/main/TicTacToe/index.html **  
   Konsolbaseret spil med fokus på logik, loops og funktioner.
 
 ---
 
 ### 💻 C Projekter
 
-- **[MiniOS Simulator](https://github.com/Bilalqamar1/MiniProjects/CProjects/MiniOS.c)**  
+- ** https://github.com/Bilalqamar1/MiniProjects/blob/main/CProjects/MiniOS.c **  
   Mini-operativsystem, der demonstrerer memory management og process-håndtering.
 
 ---
@@ -77,7 +77,7 @@ Formålet er at:
 
 ### 🗄 SQL Projekter
 
-- **[financial_data.sql](https://github.com/Bilalqamar1/MiniProjects/BusinessITProjects/FinancialDashboard/financial_data.sql)**  
+- https://github.com/Bilalqamar1/MiniProjects/blob/main/BusinessITProjects/FinancialDashboard/financial_data.sql
   SQL-database med virksomheder og finansielle resultater, inkl. tabeller, relationer og queries, klar til integration med Financial Dashboard.
 
 ---
