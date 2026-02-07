@@ -1,6 +1,6 @@
 # MiniProjects – Programmeringsportfolio
 
-Dette repository indeholder en samling af programmeringsprojekter, som jeg har udviklet hen over de seneste par måneder for at styrke mine færdigheder inden for softwareudvikling, webudvikling, Python, C, C#, SQL og økonomiske systemer. Projekterne demonstrerer min evne til at skabe interaktive, produktive og data-drevne løsninger, som er relevante inden for IT og økonomi.
+Dette repository indeholder en samling af programmeringsprojekter, som jeg har udviklet hen over de seneste måneder for at styrke mine færdigheder inden for softwareudvikling, webudvikling, Python, C, C#, SQL og økonomiske systemer. Projekterne demonstrerer min evne til at skabe interaktive, produktive og data-drevne løsninger, som er relevante inden for IT og økonomi.
 
 ---
 
@@ -99,7 +99,8 @@ Gennem disse projekter har jeg opnået erfaring med:
 
 ## Om mig
 
-Jeg er motiveret for at studere indenfor IT og økonomi, fordi jeg ønsker at kombinere softwareudvikling, dataanalyse og økonomistyring i løsninger, der gør en forskel.
+Jeg er motiveret for at studere noget inden for IT og økonomi, fordi jeg ønsker at kombinere softwareudvikling, dataanalyse og økonomistyring i løsninger, der gør en forskel.
 
 Min portfolio viser engagement, tekniske færdigheder og kreativitet, både inden for IT generelt og økonomi-relaterede projekter.
+
 
