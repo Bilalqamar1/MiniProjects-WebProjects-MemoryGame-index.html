@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <title>Financial Decision Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #ffffff;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    p.subtitle {
+      text-align: center;
+      opacity: 0.85;
+      margin-bottom: 40px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+      opacity: 0.9;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+      margin-bottom: 15px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background: #00c6ff;
+      background: linear-gradient(to right, #0072ff, #00c6ff);
+      color: white;
+      font-weight: 600;
+    }
+
+    .result {
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .positive {
+      background: rgba(0, 200, 83, 0.25);
+      color: #a5ffcb;
+    }
+
+    .neutral {
+      background: rgba(255, 193, 7, 0.25);
+      color: #ffe082;
+    }
+
+    .negative {
+      background: rgba(244, 67, 54, 0.25);
+      color: #ffb4b4;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Financial Decision Dashboard</h1>
+    <p class="subtitle">
+      Et interaktivt værktøj til økonomisk analyse og IT-baseret beslutningsstøtte
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h2>Økonomiske input</h2>
+
+        <label for="revenue">Forventet månedlig indtægt (kr.)</label>
+        <input type="number" id="revenue" placeholder="fx 120000">
+
+        <label for="costs">Samlede månedlige omkostninger (kr.)</label>
+        <input type="number" id="costs" placeholder="fx 85000">
+
+        <label for="investment">Ekstra investering (kr.)</label>
+        <input type="number" id="investment" placeholder="fx 15000">
+
+        <button onclick="analyze()">Analyser beslutning</button>
+      </div>
+
+      <div class="card">
+        <h2>Analyse & vurdering</h2>
+        <div id="output" class="result neutral">
+          Indtast tal og kør analysen
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      Udviklet som forberedelse til videregående uddannelse inden for Økonomi & IT
+    </footer>
+  </div>
+
+  <script>
+    function analyze() {
+      const revenue = Number(document.getElementById("revenue").value);
+      const costs = Number(document.getElementById("costs").value);
+      const investment = Number(document.getElementById("investment").value);
+
+      const resultBox = document.getElementById("output");
+
+      if (!revenue || !costs) {
+        resultBox.textContent = "Udfyld mindst indtægter og omkostninger.";
+        resultBox.className = "result neutral";
+        return;
+      }
+
+      const profit = revenue - costs - investment;
+
+      if (profit > 0) {
+        resultBox.textContent =
+          `Overskud på ${profit.toLocaleString()} kr. Beslutningen er økonomisk bæredygtig.`;
+        resultBox.className = "result positive";
+      } else if (profit === 0) {
+        resultBox.textContent =
+          "Projektet går i nul. Økonomisk stabilt, men uden margin.";
+        resultBox.className = "result neutral";
+      } else {
+        resultBox.textContent =
+          `Underskud på ${Math.abs(profit).toLocaleString()} kr. Beslutningen bør genovervejes.`;
+        resultBox.className = "result negative";
+      }
+    }
+  </script>
+
+</body>
+</html>
