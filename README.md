@@ -70,7 +70,8 @@ Formålet er at:
 
 ### #️⃣ C# Projekter
 
-- **[MiniCalculator](https://github.com/Bilalqamar1/MiniProjects/blob/main/CSharpProjects/MiniCalculator.cs)**  
+- **[MiniCalculator](https://github.com/Bilalqamar1/MiniProjects/blob/main/CSharpProjects/MiniCalculator/Program.cs)
+ 
   CLI-kalkulator, demonstrerer funktioner, loops og input-håndtering.
 
 ---
