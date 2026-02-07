@@ -1,51 +1,105 @@
-
 # MiniProjects – Programmeringsportfolio
 
-Dette repository indeholder en samling af små programmeringsprojekter, som jeg har lavet for at udvikle mine færdigheder og forståelse inden for softwareudvikling og programmering.
+Dette repository indeholder en samling af programmeringsprojekter, som jeg har udviklet hen over de seneste par måneder for at styrke mine færdigheder inden for softwareudvikling, webudvikling, Python, C, C#, SQL og økonomiske systemer. Projekterne demonstrerer min evne til at skabe interaktive, produktive og data-drevne løsninger, som er relevante inden for IT og økonomi.
 
-Jeg startede med disse projekter ud fra personlig interesse i teknologi og problemløsning. Gennem praktisk arbejde har jeg erfaret, at jeg nyder at bygge ting fra bunden, forstå hvordan systemer fungerer og forbedre løsninger trin for trin.
+---
 
 ## Formål med dette repository
 
-Formålet med dette repository er at:
-- Øve programmeringskoncepter i praksis
-- Lære at strukturere kode og projekter
-- Få erfaring med forskellige teknologier
-- Dokumentere min læringsproces og fremgang
+Formålet er at:
 
-Alle projekter er lavet selvstændigt som del af min forberedelse til videregående uddannelse inden for IT og software.
+- Øve og demonstrere programmeringskoncepter i praksis  
+- Strukturere komplekse projekter  
+- Opnå erfaring med nøgleværktøjer og teknologier:
+
+**Frontend:** HTML, CSS, JavaScript  
+**Backend / Scripting:** Python, C#, C  
+**Databaser:** SQL, Excel/CSV  
+**Web frameworks:** Flask / Django  
+**Versionering & samarbejde:** Git, GitHub  
+**Dataanalyse & økonomi:** Dashboards, simuleringer, finansielle beregninger  
+
+---
 
 ## Projekter
 
-### Webprojekter
+### 🌐 Webprojekter
 
-**Klik-tæller**  
-Et simpelt interaktivt webprojekt lavet med HTML, CSS og JavaScript.  
-Projektet viser grundlæggende JavaScript-logik, event-håndtering og DOM-manipulation.
+1. **[Klik-tæller](https://bilalqamar1.github.io/MiniProjects/Counter/)**  
+   Simpelt webprojekt med HTML, CSS og JavaScript, der demonstrerer grundlæggende event-håndtering og DOM-manipulation.
 
-**To-do App**  
-Et lille webprojekt, hvor brugere kan tilføje og fjerne opgaver dynamisk.  
-Projektet har hjulpet mig med at forstå funktioner, brugerinteraktion og hvordan JavaScript kan ændre en webside i realtid.
+2. **[To-do App](https://bilalqamar1.github.io/MiniProjects/WebProjects/ToDoApp/)**  
+   Webapp til dynamisk opgavestyring. Viser real-time DOM-opdatering og brugerinteraktion.
 
-### Python-projekter
+3. **[Memory Game](https://bilalqamar1.github.io/MiniProjects/WebProjects/MemoryGame/)**  
+   Hukommelsesspil med JS-tilstandsstyring og UI-design.
 
-**Tic Tac Toe (Python)**  
-Et konsolbaseret Tic Tac Toe-spil skrevet i Python.  
-Projektet fokuserer på programmeringslogik, løkker, betingelser og funktioner, og har styrket mine problemløsningsevner.
+4. **[Mood-to-Action Dashboard](https://bilalqamar1.github.io/MiniProjects/WebProjects/MoodDashboard/)**  
+   Dashboard, der giver personlige anbefalinger baseret på brugerens humør, bygget med JS/HTML/CSS.
+
+5. **[Smart Task Manager](https://bilalqamar1.github.io/MiniProjects/WebProjects/SmartTaskManager/)**  
+   Avanceret opgavestyring og prioritering, demonstrerer produktivitetsfunktioner, datalogik og interaktivitet.
+
+6. **[SpaceColony](https://bilalqamar1.github.io/MiniProjects/WebProjects/SpaceColony/)**  
+   Simuleringsspil, hvor brugeren styrer en koloni på en fjern planet, med fokus på game logic og UI/UX.
+
+7. **[Financial Dashboard](https://bilalqamar1.github.io/MiniProjects/BusinessITProjects/FinancialDashboard/)**  
+   Dashboard, der visualiserer omsætning, udgifter og profit. Integrerer SQL-database og Python til dataanalyse.
+
+8. **[Scenario Simulator](https://bilalqamar1.github.io/MiniProjects/BusinessITProjects/FinancialDashboard/scenario_simulator.html)**  
+   Simulerer forskellige økonomiske scenarier baseret på SQL-data og Python-analyse.
+
+9. **[Snake Game](https://bilalqamar1.github.io/MiniProjects/WebProjects/snake_game.html)**  
+   Moderne Snake-spil med HTML/CSS/JS, demonstrerer spil-logik og brugerinteraktion.
+
+---
+
+### 🐍 Python-projekter
+
+- **[Tic Tac Toe](https://github.com/Bilalqamar1/MiniProjects/PythonProjects/TicTacToe/main.py)**  
+  Konsolbaseret spil med fokus på logik, loops og funktioner.
+
+---
+
+### 💻 C Projekter
+
+- **[MiniOS Simulator](https://github.com/Bilalqamar1/MiniProjects/CProjects/MiniOS.c)**  
+  Mini-operativsystem, der demonstrerer memory management og process-håndtering.
+
+---
+
+### #️⃣ C# Projekter
+
+- **[MiniCalculator](https://github.com/Bilalqamar1/MiniProjects/CSharpProjects/MiniCalculator.cs)**  
+  CLI-kalkulator, demonstrerer funktioner, loops og input-håndtering.
+
+---
+
+### 🗄 SQL Projekter
+
+- **[financial_data.sql](https://github.com/Bilalqamar1/MiniProjects/BusinessITProjects/FinancialDashboard/financial_data.sql)**  
+  SQL-database med virksomheder og finansielle resultater, inkl. tabeller, relationer og queries, klar til integration med Financial Dashboard.
+
+---
 
 ## Hvad jeg har lært
 
 Gennem disse projekter har jeg opnået erfaring med:
-- Programmeringslogik og struktureret tankegang
-- Grundlæggende HTML, CSS og JavaScript
-- Python-fundamentals
-- Debugging og forbedring af kode
-- Brug af GitHub til versionsstyring og dokumentation
 
-Det vigtigste, jeg har lært, er, at jeg virkelig nyder at arbejde med programmering og softwareudvikling. Dette motiverer mig til at søge videregående uddannelse inden for IT-relaterede områder.
+- Programmeringslogik og struktureret tankegang  
+- Frontend: HTML, CSS, JavaScript  
+- Backend: Python, C, C#  
+- Databaser og SQL: tabeller, relationer, queries og profitberegning  
+- Dataanalyse og økonomistyring via Python + SQL  
+- Interaktive dashboards og spil  
+- Debugging og optimering af kode  
+- Git/GitHub versionering, live sites og dokumentation  
+
+---
 
 ## Om mig
 
-Jeg er motiveret for at studere en IT- eller softwareorienteret uddannelse, fordi jeg interesserer mig for, hvordan teknologi fungerer, og fordi jeg ønsker at anvende denne viden til at løse konkrete problemer. Jeg er især fascineret af softwareudvikling, logisk tænkning og kontinuerlig læring.
+Jeg er motiveret for at studere indenfor IT og økonomi, fordi jeg ønsker at kombinere softwareudvikling, dataanalyse og økonomistyring i løsninger, der gør en forskel.
 
-Dette repository viser mit nuværende niveau og min vilje til at lære, udvikle mig og udfordre mig selv yderligere.
+Min portfolio viser engagement, tekniske færdigheder og kreativitet, både inden for IT generelt og økonomi-relaterede projekter.
+
